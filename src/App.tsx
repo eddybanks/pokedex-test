@@ -6,6 +6,7 @@ import { Header } from "./components/Header";
 import { PokeList } from "./components/PokeList";
 import { SearchBar } from "./components/SearchBar";
 import { fetcher, pokemonListUrl } from "./helpers/data-helpers";
+import { colors, fonts } from "./helpers/shared-styles";
 
 function App() {
   const { data, error } = useSWR(pokemonListUrl, fetcher);
@@ -26,6 +27,10 @@ const PageContainer = styled.main`
   display: grid;
   grid-template-rows: min-content min-content auto min-content;
   height: 100vh;
+  color: ${colors.whiteIsh};
+  background-color: ${colors.darkBg};
+  font-family: ${fonts.roboto}, sans-serif;
+  font-size: 1rem;
 `;
 
 export default App;
