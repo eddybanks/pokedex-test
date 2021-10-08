@@ -2,7 +2,7 @@ import { ChangeEvent, SyntheticEvent, useState } from "react";
 import styled from "styled-components";
 import useSWR from "swr";
 import { fetcher, pokemonListUrl } from "../helpers/data-helpers";
-import { colors } from "../helpers/shared-styles";
+import { colors, fonts } from "../helpers/shared-styles";
 import { PokemonList } from "../types/pokemon-types";
 
 interface SearchBarProps {
@@ -85,9 +85,12 @@ const SearchBarInput = styled.input`
   height: 2rem;
   padding: 0.1rem 1rem;
   width: 80vw;
+  border: none;
   border-radius: 1rem 0 1rem 0;
   background-color: ${colors.whiteIsh()};
   text-transform: capitalize;
+  font-family: ${fonts.robotoCondensed}, sans-serif;
+  font-size: 1.3rem;
   @media screen and (min-width: 720px) {
     width: 60vw;
   }

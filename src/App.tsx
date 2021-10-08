@@ -35,12 +35,18 @@ function App() {
 const PageContainer = styled.main`
   display: grid;
   grid-template-rows: min-content min-content auto min-content;
+  gap: 1em;
+  justify-content: center;
+  justify-items: center;
   height: 100vh;
   color: ${colors.whiteIsh()};
-  background-color: ${colors.ceruleanBlue()};
+  background-color: ${colors.darkBg(0.7)};
   background-position: fixed;
   font-family: ${fonts.roboto}, sans-serif;
   font-size: 1rem;
+  @media screen and (min-width: 720px) {
+    padding: 0 25rem;
+  }
 `;
 
 export default App;
