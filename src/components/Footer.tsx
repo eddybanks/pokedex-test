@@ -12,4 +12,5 @@ const FooterContainer = styled.footer`
   display: grid;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
 `;

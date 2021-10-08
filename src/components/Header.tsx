@@ -16,5 +16,5 @@ export const Header = ({ title }: HeaderProps) => {
 const HeaderBar = styled.header`
   display: grid;
   justify-content: center;
-  padding: 1rem;
+  padding: 2rem;
 `;
