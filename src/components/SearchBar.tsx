@@ -16,6 +16,7 @@ export const SearchBar = ({ selectPokemon }: SearchBarProps) => {
   const [autoCompleteOptions, setAutoCompleteOptions] = useState<
     string[] | undefined
   >([]);
+  const [notFound, setNotFound] = useState("");
   // Full list of pokemon returned from the api call for autocomplete functionality
   const { data, error } = useSWR<PokemonList, any>(
     pokemonListUrl("?limit=898"),
@@ -39,7 +40,18 @@ export const SearchBar = ({ selectPokemon }: SearchBarProps) => {
 
   const submitSearch = (e: SyntheticEvent) => {
     e.preventDefault();
-    selectPokemon(searchInput);
+    if (
+      autoCompleteOptions &&
+      autoCompleteOptions.length > 0 &&
+      searchInput in autoCompleteOptions
+    ) {
+      setNotFound("");
+      selectPokemon(searchInput);
+    } else {
+      selectPokemon("");
+      setNotFound("The pokemon you're searching for does not yet exist!");
+    }
+    setAutoCompleteOptions([]);
   };
 
   if (error) throw error;
@@ -52,6 +64,7 @@ export const SearchBar = ({ selectPokemon }: SearchBarProps) => {
         onChange={searchPokeList}
         placeholder="Search pokemon by name..."
       />
+      {notFound.length > 0 && <ErrorMessage>{notFound}</ErrorMessage>}
       {autoCompleteOptions && (
         <AutoCompleteDropdown>
           {autoCompleteOptions.slice(0, 20).map((listItem) => (
@@ -61,6 +74,7 @@ export const SearchBar = ({ selectPokemon }: SearchBarProps) => {
                 setSearchInput(listItem);
                 selectPokemon(listItem);
                 setAutoCompleteOptions([]);
+                setNotFound("");
               }}
             >
               {listItem}
@@ -118,5 +132,20 @@ const DropdownItem = styled.li`
   text-transform: capitalize;
   :hover {
     background-color: ${colors.whiteIsh(0.9)};
+  }
+`;
+
+const ErrorMessage = styled.p`
+  text-align: center;
+  z-index: 10;
+  padding: 1rem;
+  color: ${colors.red()};
+  background-color: ${colors.whiteIsh(0.1)};
+  border-radius: 0.2rem;
+  margin-top: 0.5rem;
+  margin-bottom: -2.5rem;
+  width: 70vw;
+  @media screen and (min-width: 720px) {
+    width: 50vw;
   }
 `;
