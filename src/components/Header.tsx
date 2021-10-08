@@ -8,7 +8,7 @@ interface HeaderProps {
 export const Header = ({ title }: HeaderProps) => {
   return (
     <HeaderBar>
-      <BrandName>{title}</BrandName>
+      <BrandName href="/">{title}</BrandName>
     </HeaderBar>
   );
 };

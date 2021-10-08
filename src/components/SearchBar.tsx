@@ -59,6 +59,7 @@ export const SearchBar = ({ selectPokemon }: SearchBarProps) => {
               key={listItem}
               onClick={() => {
                 setSearchInput(listItem);
+                selectPokemon(listItem);
                 setAutoCompleteOptions([]);
               }}
             >

@@ -16,10 +16,10 @@ export const colors = {
   whiteIsh: (opacity?: number) => `rgba(220,220,220,${opacity || 1})`,
 };
 
-export const BrandName = styled.h4`
+export const BrandName = styled.a`
   font-family: ${fonts.montserrat}, sans-serif;
   font-weight: 400;
   font-size: 1.5rem;
+  text-decoration: none;
+  color: ${colors.whiteIsh()};
 `;
-
-export const Button = styled.button``;
