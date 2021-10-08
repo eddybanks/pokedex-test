@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { BrandName } from "../helpers/shared-styles";
 
 interface HeaderProps {
   title: string;
@@ -7,15 +8,13 @@ interface HeaderProps {
 export const Header = ({ title }: HeaderProps) => {
   return (
     <HeaderBar>
-      <HTitle>{title}</HTitle>
+      <BrandName>{title}</BrandName>
     </HeaderBar>
   );
 };
 
 const HeaderBar = styled.header`
   display: grid;
-`;
-
-const HTitle = styled.h3`
-  font-size: 1.4rem;
+  justify-content: center;
+  padding: 2rem;
 `;

@@ -9,3 +9,40 @@ export interface Pokemon {
   name: string;
   url: string;
 }
+
+export interface PokemonDetail {
+  name: string;
+  height: number;
+  weight: number;
+  types: PokeType[];
+  abilities: Ability[];
+  stats: Stat[];
+  sprites: Sprite;
+}
+
+export interface Ability {
+  id: number;
+  name: string;
+}
+
+export interface Stat {
+  base_stat: number;
+  effort: number;
+  stat: {
+    name: string;
+    url: string;
+  };
+}
+
+export interface PokeType {
+  id: number;
+  name: string;
+}
+
+export interface Sprite {
+  other: {
+    "official-artwork": {
+      front_default: string;
+    };
+  };
+}
