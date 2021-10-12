@@ -18,8 +18,8 @@ export const colors = {
 
 export const BrandName = styled.a`
   font-family: ${fonts.montserrat}, sans-serif;
-  font-weight: 400;
+  font-weight: 800;
   font-size: 1.5rem;
   text-decoration: none;
-  color: ${colors.whiteIsh()};
+  color: ${colors.darkBg()};
 `;
