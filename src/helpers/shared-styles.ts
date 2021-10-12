@@ -34,7 +34,7 @@ export const typeColors: { [key: string]: string } = {
   grass: "rgba(122, 199, 76, 0.4)",
   ice: "rgba(150, 217, 214, 0.4)",
   poison: "rgba(163, 62, 161, 0.4)",
-  rock: "rgba(182, 161, 54), 0.4)",
+  rock: "rgba(182, 161, 54, 0.4)",
   water: "rgba(99, 144, 240, 0.4)",
 };
 
