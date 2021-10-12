@@ -1,14 +1,15 @@
 import styled from "styled-components";
 import useSWR from "swr";
 import { fetcher } from "../helpers/data-helpers";
-import { fonts } from "../helpers/shared-styles";
+import { colors, fonts } from "../helpers/shared-styles";
 
 interface PreviewCardProps {
   name: string;
   url: string;
+  selectPokemon: (pokemon: string) => void;
 }
 
-export const PreviewCard = ({ name, url }: PreviewCardProps) => {
+export const PreviewCard = ({ name, url, selectPokemon }: PreviewCardProps) => {
   const { data, error } = useSWR<any, any>(url, fetcher);
   const image_url =
     data?.sprites?.other["official-artwork"].front_default || "";
@@ -17,7 +18,7 @@ export const PreviewCard = ({ name, url }: PreviewCardProps) => {
   if (!data) return <div>loading...</div>;
 
   return (
-    <CardContainer>
+    <CardContainer onClick={() => selectPokemon(name)}>
       <PokemonImage src={image_url} alt={`Picture of ${name}`} />
       <PokemonName>{name}</PokemonName>
     </CardContainer>
@@ -33,7 +34,10 @@ const CardContainer = styled.section`
   align-items: flex-start;
   background-color: aliceblue;
   padding: 1rem;
+  border-radius: 0.2rem;
   height: fit-content;
+  -webkit-filter: drop-shadow(2px 2px 2px ${colors.goldFoil(0.3)});
+  filter: drop-shadow(2px 2px 2px ${colors.goldFoil(0.3)});
 `;
 
 const PokemonImage = styled.img`

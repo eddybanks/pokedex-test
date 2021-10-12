@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import useSWR from "swr";
+import { PokeBall } from "./components/custom-ui/PokeBall";
 
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
@@ -23,10 +24,11 @@ function App() {
       <Header title="Edmka's Pokedex" />
       <SearchBar selectPokemon={selectPokemon} />
       {searchPoke === "" ? (
-        <PokeList data={data} />
+        <PokeList data={data} selectPokemon={selectPokemon} />
       ) : (
-        <PokeDetails searchPoke={searchPoke} />
+        <PokeDetails searchPoke={searchPoke} selectPokemon={selectPokemon} />
       )}
+      <PokeBall />
       <Footer />
     </PageContainer>
   );
@@ -38,15 +40,12 @@ const PageContainer = styled.main`
   gap: 1em;
   justify-content: center;
   justify-items: center;
+  width: 100vw;
   height: 100vh;
-  color: ${colors.whiteIsh()};
-  background-color: ${colors.darkBg(0.7)};
+  color: ${colors.darkBg()};
   background-position: fixed;
   font-family: ${fonts.roboto}, sans-serif;
   font-size: 1rem;
-  @media screen and (min-width: 720px) {
-    padding: 0 25rem;
-  }
 `;
 
 export default App;

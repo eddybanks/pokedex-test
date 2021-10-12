@@ -37,6 +37,10 @@ export const SearchBar = ({ selectPokemon }: SearchBarProps) => {
       ? setAutoCompleteOptions([])
       : setAutoCompleteOptions(autoListNames);
   };
+  const clearInput = () => {
+    setSearchInput("");
+    setAutoCompleteOptions([]);
+  };
 
   const submitSearch = (e: SyntheticEvent) => {
     e.preventDefault();
@@ -58,12 +62,19 @@ export const SearchBar = ({ selectPokemon }: SearchBarProps) => {
   if (!data) return <div>loading...</div>;
 
   return (
-    <SearchBarContainer onSubmit={(e) => submitSearch(e)}>
-      <SearchBarInput
-        value={searchInput}
-        onChange={searchPokeList}
-        placeholder="Search pokemon by name..."
-      />
+    <>
+      <SearchBarContainer onSubmit={(e) => submitSearch(e)}>
+        <SearchBarInput
+          value={searchInput}
+          onChange={searchPokeList}
+          placeholder="Search pokemon by name..."
+        />
+        {searchInput && (
+          <ClearButton type="button" onClick={clearInput}>
+            Clear
+          </ClearButton>
+        )}
+      </SearchBarContainer>
       {notFound.length > 0 && <ErrorMessage>{notFound}</ErrorMessage>}
       {autoCompleteOptions && (
         <AutoCompleteDropdown>
@@ -82,7 +93,7 @@ export const SearchBar = ({ selectPokemon }: SearchBarProps) => {
           ))}
         </AutoCompleteDropdown>
       )}
-    </SearchBarContainer>
+    </>
   );
 };
 
@@ -90,22 +101,25 @@ export const SearchBar = ({ selectPokemon }: SearchBarProps) => {
 
 const SearchBarContainer = styled.form`
   display: grid;
+  grid-auto-flow: column;
   justify-content: stretch;
-  justify-items: center;
-  padding-bottom: 2rem;
+  border: 1px solid ${colors.darkBg()};
+  background-color: ${colors.whiteIsh()};
+  border-radius: 1rem;
   height: auto;
+  width: 80vw;
 `;
 
 const SearchBarInput = styled.input`
-  height: 2rem;
-  padding: 0.1rem 1rem;
-  width: 80vw;
+  height: 3rem;
   border: none;
-  border-radius: 1rem 0 1rem 0;
-  background-color: ${colors.whiteIsh()};
+  margin: 0 1rem;
+  color: ${colors.darkBg()};
   text-transform: capitalize;
+  background-color: ${colors.whiteIsh()};
   font-family: ${fonts.robotoCondensed}, sans-serif;
   font-size: 1.3rem;
+  outline: none;
   @media screen and (min-width: 720px) {
     width: 60vw;
   }
@@ -113,16 +127,25 @@ const SearchBarInput = styled.input`
 
 const AutoCompleteDropdown = styled.ul`
   border: none;
-  background-color: ${colors.whiteIsh(0.9)};
-  width: 81vw;
+  background-color: ${colors.whiteIsh()};
+  width: 79vw;
   max-height: 20vh;
   overflow: auto;
   z-index: 10;
   position: fixed;
-  margin-top: 2.5rem;
+  margin-top: 9.2rem;
   @media screen and (min-width: 720px) {
-    width: 61vw;
+    margin-top: 10.2rem;
   }
+`;
+
+const ClearButton = styled.button`
+  border: none;
+  outline: none;
+  color: ${colors.whiteIsh()};
+  background-color: ${colors.darkBg(0.8)};
+  border-radius: 0 0.9rem 0.9rem 0;
+  padding: 0 0.5rem;
 `;
 
 const DropdownItem = styled.li`
@@ -138,11 +161,11 @@ const DropdownItem = styled.li`
 const ErrorMessage = styled.p`
   text-align: center;
   z-index: 10;
+  margin-top: -1.5rem;
   padding: 1rem;
   color: ${colors.red()};
   background-color: ${colors.whiteIsh(0.1)};
   border-radius: 0.2rem;
-  margin-top: 0.5rem;
   margin-bottom: -2.5rem;
   width: 70vw;
   @media screen and (min-width: 720px) {

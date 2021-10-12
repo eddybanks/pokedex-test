@@ -17,4 +17,7 @@ const HeaderBar = styled.header`
   display: grid;
   justify-content: center;
   padding: 2rem;
+  @media screen and (max-width: 720px) {
+    padding-bottom: 1rem;
+  }
 `;

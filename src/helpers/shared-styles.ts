@@ -13,13 +13,14 @@ export const colors = {
   goldenYellow: (opacity?: number) => `rgba(255,222,0,${opacity || 1})`,
   goldFoil: (opacity?: number) => `rgba(179,161,37,${opacity || 1})`,
   darkBg: (opacity?: number) => `rgba(10,10,0,${opacity || 1})`,
-  whiteIsh: (opacity?: number) => `rgba(220,220,220,${opacity || 1})`,
+  whiteIsh: (opacity?: number) => `rgba(230,230,220,${opacity || 1})`,
+  moreWhite: (opacity?: number) => `rgba(255,255,255,${opacity || 1})`,
 };
 
 export const BrandName = styled.a`
   font-family: ${fonts.montserrat}, sans-serif;
-  font-weight: 400;
+  font-weight: 800;
   font-size: 1.5rem;
   text-decoration: none;
-  color: ${colors.whiteIsh()};
+  color: ${colors.darkBg()};
 `;
