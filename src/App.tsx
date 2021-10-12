@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import useSWR from "swr";
-// import { PokeBall } from "./components/custom-ui/PokeBall";
+import { PokeBall } from "./components/custom-ui/PokeBall";
 
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
@@ -26,9 +26,9 @@ function App() {
       {searchPoke === "" ? (
         <PokeList data={data} selectPokemon={selectPokemon} />
       ) : (
-        <PokeDetails searchPoke={searchPoke} />
+        <PokeDetails searchPoke={searchPoke} selectPokemon={selectPokemon} />
       )}
-      {/* <PokeBall /> */}
+      <PokeBall />
       <Footer />
     </PageContainer>
   );

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import useSWR from "swr";
 import { fetcher } from "../helpers/data-helpers";
-import { fonts } from "../helpers/shared-styles";
+import { colors, fonts } from "../helpers/shared-styles";
 
 interface PreviewCardProps {
   name: string;
@@ -34,7 +34,10 @@ const CardContainer = styled.section`
   align-items: flex-start;
   background-color: aliceblue;
   padding: 1rem;
+  border-radius: 0.2rem;
   height: fit-content;
+  -webkit-filter: drop-shadow(2px 2px 2px ${colors.goldFoil(0.3)});
+  filter: drop-shadow(2px 2px 2px ${colors.goldFoil(0.3)});
 `;
 
 const PokemonImage = styled.img`

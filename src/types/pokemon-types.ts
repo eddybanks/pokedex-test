@@ -21,8 +21,9 @@ export interface PokemonDetail {
 }
 
 export interface Ability {
-  id: number;
-  name: string;
+  ability: {
+    name: string;
+  };
 }
 
 export interface Stat {
@@ -35,8 +36,7 @@ export interface Stat {
 }
 
 export interface PokeType {
-  id: number;
-  name: string;
+  type: { name: string };
 }
 
 export interface Sprite {

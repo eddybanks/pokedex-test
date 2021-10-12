@@ -128,7 +128,7 @@ const SearchBarInput = styled.input`
 const AutoCompleteDropdown = styled.ul`
   border: none;
   background-color: ${colors.whiteIsh()};
-  width: 81vw;
+  width: 79vw;
   max-height: 20vh;
   overflow: auto;
   z-index: 10;
@@ -136,7 +136,6 @@ const AutoCompleteDropdown = styled.ul`
   margin-top: 9.2rem;
   @media screen and (min-width: 720px) {
     margin-top: 10.2rem;
-    width: 61vw;
   }
 `;
 
