@@ -35,13 +35,14 @@ const InnerBar = styled.div<ColoredBarProps>`
   height: 1.5rem;
   border-radius: 0.8rem;
   background-color: ${colors.darkBg(0.5)};
-  width: ${(props) => (props.stat ? `${props.stat}rem` : "8rem")};
+  width: ${(props) => (props.stat ? `${(props.stat * 15) / 100}rem` : "8rem")};
   color: ${(props) => (props.color ? props.color : colors.darkBg(0.5))};
   color: ${colors.whiteIsh()};
   font-family: ${fonts.robotoCondensed}, sans-serif;
   font-weight: 200;
   font-size: 0.9rem;
   @media screen and (max-width: 720px) {
-    width: ${(props) => (props.stat ? `${props.stat}rem` : "8rem")};
+    width: ${(props) =>
+      props.stat ? `${(props.stat * 12) / 100}rem` : "8rem"};
   }
 `;
