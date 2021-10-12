@@ -127,6 +127,8 @@ const SearchBarInput = styled.input`
 `;
 
 const AutoCompleteDropdown = styled.ul`
+  display: grid;
+  justify-self: center;
   border: none;
   background-color: ${colors.whiteIsh()};
   width: 79vw;
