@@ -13,7 +13,6 @@ export const PokeList = ({ data, selectPokemon }: PokeListProps) => {
   return (
     <ScrollContainer>
       <PokeListContainer>
-        {/* TODO: Display the cards in here! */}
         {results.map((pokemon) => (
           <PreviewCard
             key={pokemon.name}

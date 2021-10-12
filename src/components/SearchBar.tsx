@@ -39,6 +39,7 @@ export const SearchBar = ({ selectPokemon }: SearchBarProps) => {
   };
   const clearInput = () => {
     setSearchInput("");
+    setNotFound("");
     setAutoCompleteOptions([]);
   };
 

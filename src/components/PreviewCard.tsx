@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import useSWR from "swr";
 import { fetcher } from "../helpers/data-helpers";
-import { colors, fonts } from "../helpers/shared-styles";
+import { colors, fonts, typeColors } from "../helpers/shared-styles";
 
 interface PreviewCardProps {
   name: string;
@@ -18,7 +18,10 @@ export const PreviewCard = ({ name, url, selectPokemon }: PreviewCardProps) => {
   if (!data) return <div>loading...</div>;
 
   return (
-    <CardContainer onClick={() => selectPokemon(name)}>
+    <CardContainer
+      onClick={() => selectPokemon(name)}
+      colorType={data.types[0].type.name}
+    >
       <PokemonImage src={image_url} alt={`Picture of ${name}`} />
       <PokemonName>{name}</PokemonName>
     </CardContainer>
@@ -27,12 +30,13 @@ export const PreviewCard = ({ name, url, selectPokemon }: PreviewCardProps) => {
 
 // Styled Component Definitions
 
-const CardContainer = styled.section`
+const CardContainer = styled.section<{ colorType?: string }>`
   display: grid;
   justify-content: center;
   justify-items: center;
   align-items: flex-start;
-  background-color: aliceblue;
+  background-color: ${(props) =>
+    props.colorType ? typeColors[props.colorType] : colors.darkBg(0.5)};
   padding: 1rem;
   border-radius: 0.2rem;
   height: fit-content;
