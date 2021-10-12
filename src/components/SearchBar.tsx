@@ -37,6 +37,10 @@ export const SearchBar = ({ selectPokemon }: SearchBarProps) => {
       ? setAutoCompleteOptions([])
       : setAutoCompleteOptions(autoListNames);
   };
+  const clearInput = () => {
+    setSearchInput("");
+    setAutoCompleteOptions([]);
+  };
 
   const submitSearch = (e: SyntheticEvent) => {
     e.preventDefault();
@@ -66,12 +70,7 @@ export const SearchBar = ({ selectPokemon }: SearchBarProps) => {
           placeholder="Search pokemon by name..."
         />
         {searchInput && (
-          <ClearButton
-            type="button"
-            onClick={() => {
-              setSearchInput("");
-            }}
-          >
+          <ClearButton type="button" onClick={clearInput}>
             Clear
           </ClearButton>
         )}
@@ -128,14 +127,15 @@ const SearchBarInput = styled.input`
 
 const AutoCompleteDropdown = styled.ul`
   border: none;
-  background-color: ${colors.whiteIsh(0.9)};
+  background-color: ${colors.whiteIsh()};
   width: 81vw;
   max-height: 20vh;
   overflow: auto;
   z-index: 10;
   position: fixed;
-  margin-top: 10.2rem;
+  margin-top: 9.2rem;
   @media screen and (min-width: 720px) {
+    margin-top: 10.2rem;
     width: 61vw;
   }
 `;

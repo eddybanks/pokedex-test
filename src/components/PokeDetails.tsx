@@ -38,7 +38,7 @@ const PokeDetailsContainer = styled.section`
   align-content: flex-start;
   gap: 1rem;
   padding: 2rem 5rem;
-  width: 68%;
+  width: 60vw;
   border-radius: 0.5rem;
   background-color: ${colors.red(0.4)};
 `;
@@ -57,10 +57,10 @@ const PokeImage = styled.img`
 `;
 
 const PokeName = styled.h2`
-  text-transform: capitalize;
+  text-transform: uppercase;
   color: ${colors.darkBg()};
-  -webkit-filter: drop-shadow(2px 2px 0 ${colors.whiteIsh()});
-  filter: drop-shadow(2px 2px 0 ${colors.whiteIsh()});
+  -webkit-filter: drop-shadow(2px 2px 3px ${colors.whiteIsh()});
+  filter: drop-shadow(2px 2px 3px ${colors.whiteIsh()});
   margin-bottom: 3rem;
 `;
 
@@ -69,7 +69,7 @@ const PokeDescription = styled.div`
   margin-top: -3rem;
   padding-top: 5rem;
   padding: 1rem;
-  background-color: ${colors.whiteIsh(0.8)};
+  background-color: ${colors.whiteIsh(0.5)};
   border-radius: 1rem;
   color: ${colors.darkBg()};
 `;

@@ -6,9 +6,10 @@ import { fonts } from "../helpers/shared-styles";
 interface PreviewCardProps {
   name: string;
   url: string;
+  selectPokemon: (pokemon: string) => void;
 }
 
-export const PreviewCard = ({ name, url }: PreviewCardProps) => {
+export const PreviewCard = ({ name, url, selectPokemon }: PreviewCardProps) => {
   const { data, error } = useSWR<any, any>(url, fetcher);
   const image_url =
     data?.sprites?.other["official-artwork"].front_default || "";
@@ -17,7 +18,7 @@ export const PreviewCard = ({ name, url }: PreviewCardProps) => {
   if (!data) return <div>loading...</div>;
 
   return (
-    <CardContainer>
+    <CardContainer onClick={() => selectPokemon(name)}>
       <PokemonImage src={image_url} alt={`Picture of ${name}`} />
       <PokemonName>{name}</PokemonName>
     </CardContainer>

@@ -4,9 +4,10 @@ import { PreviewCard } from "./PreviewCard";
 
 interface PokeListProps {
   data: PokemonList;
+  selectPokemon: (pokemon: string) => void;
 }
 
-export const PokeList = ({ data }: PokeListProps) => {
+export const PokeList = ({ data, selectPokemon }: PokeListProps) => {
   const { results } = data;
 
   return (
@@ -18,6 +19,7 @@ export const PokeList = ({ data }: PokeListProps) => {
             key={pokemon.name}
             name={pokemon.name}
             url={pokemon.url}
+            selectPokemon={selectPokemon}
           />
         ))}
       </PokeListContainer>

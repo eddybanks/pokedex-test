@@ -24,7 +24,7 @@ function App() {
       <Header title="Edmka's Pokedex" />
       <SearchBar selectPokemon={selectPokemon} />
       {searchPoke === "" ? (
-        <PokeList data={data} />
+        <PokeList data={data} selectPokemon={selectPokemon} />
       ) : (
         <PokeDetails searchPoke={searchPoke} />
       )}

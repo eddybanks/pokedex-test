@@ -13,4 +13,7 @@ const FooterContainer = styled.footer`
   justify-content: center;
   align-items: center;
   padding: 1rem;
+  @media screen and (max-width: 720px) {
+    padding: 0.5rem;
+  }
 `;
