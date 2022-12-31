@@ -13,14 +13,14 @@ Some of the npm packages I installed to help include:
 
 To run the application, simply clone this repo, cd into the root folder of application (if you aren't there) and run the following commands:
 
-`yarn install`
+`npm install`
 
 Only run yarn install once after cloning the repo to install the necessary npm packages.
 
-`yarn start`
+`npm start`
 
 This should be run everytime you want to view the application in your browser.
 
-`yarn test`
+`npm test`
 
 Only necessary to run tests (which this app may or may not have at this time)
